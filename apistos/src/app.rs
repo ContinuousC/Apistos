@@ -247,6 +247,13 @@ where
     actix_app.service(resource(openapi_path).route(get().to(OASHandler::new(open_api_spec))))
   }
 
+  #[allow(clippy::unwrap_used, clippy::expect_used)]
+  pub fn build_spec(self) -> (actix_web::App<T>, OpenApi) {
+    let open_api_spec = self.open_api_spec.read().unwrap().clone();
+    let app = self.inner.expect("Missing app");
+    (app, open_api_spec)
+  }
+
   /// Updates the underlying spec with definitions and operations from the given definition holder.
   #[allow(clippy::unwrap_used)]
   fn update_from_def_holder<D: DefinitionHolder>(&mut self, definition_holder: &mut D) {
