@@ -25,10 +25,10 @@ schemars = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 
-apistos-core = { path = "../apistos-core", version = "0.2.4" }
-apistos-gen = { path = "../apistos-gen", version = "0.2.4" }
-apistos-models = { path = "../apistos-models", version = "0.2.4" }
-apistos-plugins = { path = "../apistos-plugins", version = "0.2.4" }
+apistos-core = { registry = "si", path = "../apistos-core", version = "0.2.4" }
+apistos-gen = { registry = "si", path = "../apistos-gen", version = "0.2.4" }
+apistos-models = { registry = "si", path = "../apistos-models", version = "0.2.4" }
+apistos-plugins = { registry = "si", path = "../apistos-plugins", version = "0.2.4" }
 apistos-rapidoc = { path = "../apistos-rapidoc", version = "0.2.4", optional = true }
 apistos-redoc = { path = "../apistos-redoc", version = "0.2.4", optional = true }
 apistos-scalar = { path = "../apistos-scalar", version = "0.2.4", optional = true }
@@ -39,7 +39,7 @@ apistos-swagger-ui = { path = "../apistos-swagger-ui", version = "0.2.4", option
 actix-web-lab = { workspace = true }
 garde-actix-web = { workspace = true }
 
-apistos-models = { path = "../apistos-models", version = "0.2.4", features = ["deserialize"] }
+apistos-models = { registry = "si", path = "../apistos-models", version = "0.2.4", features = ["deserialize"] }
 apistos-rapidoc = { path = "../apistos-rapidoc", version = "0.2.4" }
 apistos-redoc = { path = "../apistos-redoc", version = "0.2.4" }
 apistos-scalar = { path = "../apistos-scalar", version = "0.2.4" }
