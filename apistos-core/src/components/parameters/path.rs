@@ -16,7 +16,7 @@ where
   }
 
   fn child_schemas() -> Vec<(String, ReferenceOr<Schema>)> {
-    vec![]
+    T::child_schemas()
   }
 
   fn raw_schema() -> Option<ReferenceOr<Schema>> {
@@ -53,7 +53,7 @@ where
   }
 
   fn child_schemas() -> Vec<(String, ReferenceOr<Schema>)> {
-    vec![]
+    T::child_schemas()
   }
 
   fn raw_schema() -> Option<ReferenceOr<Schema>> {
@@ -89,7 +89,9 @@ macro_rules! impl_path_tuple ({ $($ty:ident),+ } => {
     }
 
     fn child_schemas() -> Vec<(String, ReferenceOr<Schema>)> {
-      vec![]
+		let mut schemas = Vec::new();
+		$(schemas.extend($ty::child_schemas());)+
+		schemas
     }
 
     fn raw_schema() -> Option<ReferenceOr<Schema>> {
@@ -128,7 +130,9 @@ macro_rules! impl_path_tuple ({ $($ty:ident),+ } => {
     }
 
     fn child_schemas() -> Vec<(String, ReferenceOr<Schema>)> {
-      vec![]
+		let mut schemas = Vec::new();
+		$(schemas.extend($ty::child_schemas());)+
+		schemas
     }
 
     fn raw_schema() -> Option<ReferenceOr<Schema>> {
